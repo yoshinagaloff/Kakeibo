@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>共有家計簿 - Web App</title>
+  <meta charset="UTF-8">
+  <title>共有家計簿</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>📒 共有家計簿 (Web)</h1>
+<h1>📸 Quét hóa đơn</h1>
 
 <section class="camera">
-  <input type="file" id="receiptImage" accept="image/*" capture="environment">
-  <button onclick="scanReceipt()">📸 Quét hóa đơn</button>
+  <video id="video" autoplay playsinline></video>
+  <canvas id="canvas" hidden></canvas>
+
+  <button onclick="startCamera()">📷 Mở camera</button>
+  <button onclick="capture()">📸 Chụp & quét</button>
 </section>
 
 <section class="form">
   <label>Ngày</label>
   <input type="date" id="date">
 
-  <label>Tên cửa hàng</label>
+  <label>Cửa hàng</label>
   <input type="text" id="shop">
 
-  <label>Số tiền (¥)</label>
+  <label>Tổng tiền (¥)</label>
   <input type="number" id="amount">
 
-  <button onclick="saveExpense()">💾 Lưu chi tiêu</button>
+  <button onclick="saveExpense()">💾 Lưu</button>
 </section>
 
-<section>
-  <h2>📊 Danh sách chi tiêu</h2>
-  <ul id="expenseList"></ul>
-</section>
+<ul id="expenseList"></ul>
 
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <script src="app.js"></script>
